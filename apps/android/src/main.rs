@@ -1,3 +1,4 @@
+
 use macroquad::prelude::*;
 
 const BG: Color = Color::new(0.035, 0.035, 0.045, 1.0);
@@ -124,13 +125,7 @@ async fn main() {
         }
 
         draw_rectangle(0.0, bottom, sw, input_height, PANEL);
-        draw_rectangle(
-            0.0,
-            bottom,
-            sw,
-            1.0,
-            Color::new(0.18, 0.18, 0.22, 1.0),
-        );
+        draw_rectangle(0.0, bottom, sw, 1.0, Color::new(0.18, 0.18, 0.22, 1.0));
         draw_rectangle(14.0, bottom + 14.0, sw - 76.0, 46.0, BG);
         draw_text(
             if input.is_empty() {
