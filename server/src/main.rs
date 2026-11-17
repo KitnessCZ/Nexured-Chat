@@ -1,3 +1,4 @@
+
 use axum::{
     extract::{Query, State},
     http::StatusCode,
@@ -126,14 +127,13 @@ async fn create_message(
     }
 
     let created_at = Utc::now().to_rfc3339();
-    let result =
-        sqlx::query("INSERT INTO messages (sender, body, created_at) VALUES (?, ?, ?)")
-            .bind(sender)
-            .bind(body)
-            .bind(&created_at)
-            .execute(&state.db)
-            .await
-            .map_err(internal_error)?;
+    let result = sqlx::query("INSERT INTO messages (sender, body, created_at) VALUES (?, ?, ?)")
+        .bind(sender)
+        .bind(body)
+        .bind(&created_at)
+        .execute(&state.db)
+        .await
+        .map_err(internal_error)?;
 
     let message = Message {
         id: result.last_insert_rowid(),
