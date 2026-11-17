@@ -1,0 +1,8 @@
+[package]
+name = "nexured-android"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+macroquad = "0.4"
